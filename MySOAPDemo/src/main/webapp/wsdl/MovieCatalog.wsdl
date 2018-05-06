@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mysoapdemo.abhishek.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://mysoapdemo.abhishek.com" xmlns:intf="http://mysoapdemo.abhishek.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://mysoapdemo.abhishek.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="bestPicture">
+    <complexType/>
+   </element>
+   <element name="bestPictureResponse">
+    <complexType>
+     <sequence>
+      <element name="bestPictureReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="bestPictureResponse">
+
+      <wsdl:part element="impl:bestPictureResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bestPictureRequest">
+
+      <wsdl:part element="impl:bestPicture" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MovieCatalog">
+
+      <wsdl:operation name="bestPicture">
+
+         <wsdl:input message="impl:bestPictureRequest" name="bestPictureRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:bestPictureResponse" name="bestPictureResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MovieCatalogSoapBinding" type="impl:MovieCatalog">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="bestPicture">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="bestPictureRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="bestPictureResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MovieCatalogService">
+
+      <wsdl:port binding="impl:MovieCatalogSoapBinding" name="MovieCatalog">
+
+         <wsdlsoap:address location="http://localhost:8080/MySOAPDemo/services/MovieCatalog"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
